@@ -1,7 +1,10 @@
-import {View, FlatList, Text} from 'react-native';
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getCryptocurrency} from '../redux/actions';
+import {Titles} from '../components/Titles';
+import {List} from '../components/List';
+
+import {Layout} from '../components/Layout';
 
 export const Cryptocurrencys = () => {
   const {cryptocurrency} = useSelector(state => state.userReducer);
@@ -13,17 +16,9 @@ export const Cryptocurrencys = () => {
   }, []);
 
   return (
-    <View style={{alignItems: 'center'}}>
-      <Text>Cryptocurrencys App</Text>
-      <FlatList
-        data={cryptocurrency.data}
-        renderItem={({item}) => (
-          <View>
-            <Text>{item.name}</Text>
-            {/* <Text>{item.symbol}</Text> */}
-          </View>
-        )}
-      />
-    </View>
+    <Layout>
+      <Titles />
+      <List data={cryptocurrency.data} />
+    </Layout>
   );
 };

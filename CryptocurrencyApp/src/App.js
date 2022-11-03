@@ -6,6 +6,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from 'styled-components/native';
 import {Provider} from 'react-redux';
 import {Store} from './redux/store';
@@ -24,17 +25,19 @@ const App = () => {
 
   return (
     <Provider store={Store}>
-      <ThemeProvider theme={lightTheme}>
-        <SafeAreaView style={styles.container}>
-          <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            backgroundColor={lightTheme.blueLight}
-          />
-          <GestureHandlerRootView style={styles.container}>
-            <Routes />
-          </GestureHandlerRootView>
-        </SafeAreaView>
-      </ThemeProvider>
+      <NavigationContainer>
+        <ThemeProvider theme={lightTheme}>
+          <SafeAreaView style={styles.container}>
+            <StatusBar
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+              backgroundColor={lightTheme.blueLight}
+            />
+            <GestureHandlerRootView style={styles.container}>
+              <Routes />
+            </GestureHandlerRootView>
+          </SafeAreaView>
+        </ThemeProvider>
+      </NavigationContainer>
     </Provider>
   );
 };
