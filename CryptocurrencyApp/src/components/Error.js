@@ -22,11 +22,10 @@ const ErrorText = styled(Text)`
   color: ${props => props.theme.error};
 `;
 
-export const Error = ({message}) => {
+export const Error = () => {
   return (
     <ErrorView>
       <ErrorTitle>Something went wrong!</ErrorTitle>
-      <ErrorText>{message}</ErrorText>
     </ErrorView>
   );
 };

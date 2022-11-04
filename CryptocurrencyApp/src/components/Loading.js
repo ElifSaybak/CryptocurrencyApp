@@ -1,8 +1,17 @@
 import React from 'react';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
+import {useTheme} from 'styled-components';
+import styled from 'styled-components/native';
+
+const LoadingContainer = styled(View)`
+  margin-top: 30px;
+`;
 
 export const Loading = ({color, size}) => {
+  const theme = useTheme();
   return (
-    <ActivityIndicator style={{marginTop: 20}} color={color} size={size} />
+    <LoadingContainer>
+      <ActivityIndicator color={color || theme.white} size={size} />
+    </LoadingContainer>
   );
 };

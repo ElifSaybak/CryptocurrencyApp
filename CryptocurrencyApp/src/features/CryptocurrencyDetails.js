@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useTheme} from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {getCryptocurrency} from '../redux/actions';
+import {getCryptocurrency, RESET_ACTION} from '../redux/actions';
 import {Loading, Layout, Title, DetailList, Error} from '../components/index';
 
 export const CryptocurrencyDetails = props => {
@@ -22,7 +22,10 @@ export const CryptocurrencyDetails = props => {
     } catch (error) {
       setError(error.message);
       setLoading(false);
+      console.log('\nERROR getCryptocurrency: ', error.message);
     }
+
+    return () => dispatch(RESET_ACTION);
   }, []);
 
   if (loading) {
@@ -39,8 +42,12 @@ export const CryptocurrencyDetails = props => {
 
   return (
     <Layout>
-      <Title data={cryptocurrency.data} />
-      <DetailList data={cryptocurrency.data} />
+      {cryptocurrency.data && (
+        <>
+          <Title data={cryptocurrency.data} />
+          <DetailList data={cryptocurrency.data} />
+        </>
+      )}
     </Layout>
   );
 };

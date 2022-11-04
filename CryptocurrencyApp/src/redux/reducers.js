@@ -11,7 +11,8 @@ function userReducer(state = initialState, action) {
       return {...state, cryptocurrency: action.payload};
     case GET_CRYPTOCURRENCYS:
       return {...state, cryptocurrencys: action.payload};
-
+    case "RESET":
+      return {...state, cryptocurrency: []};
     default:
       return state;
   }
