@@ -3,9 +3,9 @@ import {API_URL} from '../config/index';
 export const GET_CRYPTOCURRENCYS = 'GET_CRYPTOCURRENCYS';
 export const GET_CRYPTOCURRENCY = 'GET_CRYPTOCURRENCY';
 
-export const RESET_ACTION = {
-  type: "RESET"
-}
+export const RESET_CRYPTOCURRENCY = {
+  type: 'RESET',
+};
 
 export const getCryptocurrency = id => {
   try {

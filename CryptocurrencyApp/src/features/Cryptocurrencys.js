@@ -14,13 +14,17 @@ export const Cryptocurrencys = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    try {
-      dispatch(getCryptocurrencys());
+    const fetchData = async () => {
+      await dispatch(getCryptocurrencys());
       setLoading(false);
-      // console.log('Data: \n\n', cryptocurrencys.data);
+    };
+
+    try {
+      fetchData();
     } catch (error) {
       setError(error.message);
       setLoading(false);
+      console.log('\nERROR getCryptocurrencys: ', error.message);
     }
   }, []);
 

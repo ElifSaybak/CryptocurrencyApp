@@ -1,4 +1,4 @@
-import {GET_CRYPTOCURRENCYS, GET_CRYPTOCURRENCY} from './actions';
+import {GET_CRYPTOCURRENCYS, GET_CRYPTOCURRENCY, RESET_CRYPTOCURRENCY} from './actions';
 
 const initialState = {
   cryptocurrencys: [],
@@ -11,7 +11,7 @@ function userReducer(state = initialState, action) {
       return {...state, cryptocurrency: action.payload};
     case GET_CRYPTOCURRENCYS:
       return {...state, cryptocurrencys: action.payload};
-    case "RESET":
+    case RESET_CRYPTOCURRENCY:
       return {...state, cryptocurrency: []};
     default:
       return state;

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useTheme} from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {getCryptocurrency, RESET_ACTION} from '../redux/actions';
+import {getCryptocurrency, RESET_CRYPTOCURRENCY} from '../redux/actions';
 import {Loading, Layout, Title, DetailList, Error} from '../components/index';
 
 export const CryptocurrencyDetails = props => {
@@ -15,17 +15,20 @@ export const CryptocurrencyDetails = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    try {
-      dispatch(getCryptocurrency(id));
+    const fetchData = async () => {
+      await dispatch(getCryptocurrency(id));
       setLoading(false);
-      // console.log('Dataaaaaaaaaaaa: \n\n', cryptocurrency.data);
+    };
+
+    try {
+      fetchData();
     } catch (error) {
       setError(error.message);
       setLoading(false);
       console.log('\nERROR getCryptocurrency: ', error.message);
     }
 
-    return () => dispatch(RESET_ACTION);
+    return () => dispatch(RESET_CRYPTOCURRENCY);
   }, []);
 
   if (loading) {
