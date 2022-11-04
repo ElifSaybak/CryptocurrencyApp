@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
-import {Item} from './Item';
+import {Item} from './index';
 
 const MainContainer = styled(View)`
   background-color: ${props => props.theme.white};
@@ -14,22 +14,28 @@ const MainContainer = styled(View)`
   align-items: center;
 `;
 
+const StyledScrollView = styled(ScrollView)`
+  margin-bottom: 10px;
+`;
+
 export const List = ({data}) => {
   return (
-    <MainContainer>
-      <FlatList
-        data={data}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}) => (
-          <Item
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            symbol={item.symbol}
-            price={item.metrics.market_data.price_usd}
-          />
-        )}
-      />
-    </MainContainer>
+    <StyledScrollView horizontal>
+      <MainContainer>
+        <FlatList
+          data={data}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item}) => (
+            <Item
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              symbol={item.symbol}
+              price={item.metrics.market_data.price_usd}
+            />
+          )}
+        />
+      </MainContainer>
+    </StyledScrollView>
   );
 };

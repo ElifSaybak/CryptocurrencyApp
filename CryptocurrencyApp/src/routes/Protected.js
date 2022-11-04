@@ -1,16 +1,12 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useTheme} from 'styled-components';
 
-import {Cryptocurrencys} from '../features/Cryptocurrencys';
-import {CryptocurrencyDetails} from '../features/CryptocurrencyDetails';
-import {Icon} from 'react-native-elements';
+import {Cryptocurrencys, CryptocurrencyDetails} from '../features/index';
 
 const Stack = createNativeStackNavigator();
 
 export const Protected = () => {
-  const navigation = useNavigation();
   const theme = useTheme();
 
   return (

@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 
 const Container = styled(View)`
   background-color: ${props => props.theme.blueMain};
-  margin-top: 10px;
+  margin-top: 30px;
   height: 70px;
   width: 350px;
   flex-direction: row;
