@@ -44,7 +44,7 @@ export const Item = ({id, name, symbol, price}) => {
         <CryptocurrencyText>{symbol}</CryptocurrencyText>
       </CryptocurrencyContainer>
       <CryptocurrencyContainer>
-        <CryptocurrencyText>{price}</CryptocurrencyText>
+        <CryptocurrencyText>{price.toFixed(2)}</CryptocurrencyText>
       </CryptocurrencyContainer>
     </Container>
   );

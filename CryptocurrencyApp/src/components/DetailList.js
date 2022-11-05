@@ -48,7 +48,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.price_usd}
+              {data.market_data.price_usd.toFixed(2)}
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -58,7 +58,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.price_btc}
+              {data.market_data.price_btc.toFixed(2)}
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -68,7 +68,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.price_eth}
+              {data.market_data.price_eth.toFixed(2)}
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -77,7 +77,9 @@ export const DetailList = ({data}) => {
             <CryptocurrencyText>Rank</CryptocurrencyText>
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
-            <CryptocurrencyText>{data.marketcap.rank}</CryptocurrencyText>
+            <CryptocurrencyText>
+              {data.marketcap.rank.toFixed(2)}
+            </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
         <Container>
@@ -86,7 +88,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.volume_last_24_hours}
+              {data.market_data.volume_last_24_hours.toFixed(2)}
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -96,7 +98,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.percent_change_usd_last_24_hours}
+              {data.market_data.percent_change_usd_last_24_hours.toFixed(2)}%
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -106,7 +108,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.percent_change_btc_last_24_hours}
+              {data.market_data.percent_change_btc_last_24_hours.toFixed(2)}%
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -116,7 +118,7 @@ export const DetailList = ({data}) => {
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
             <CryptocurrencyText>
-              {data.market_data.percent_change_eth_last_24_hours}
+              {data.market_data.percent_change_eth_last_24_hours.toFixed(2)}%
             </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
@@ -125,7 +127,9 @@ export const DetailList = ({data}) => {
             <CryptocurrencyText>All time high price</CryptocurrencyText>
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
-            <CryptocurrencyText>{data.all_time_high.price}</CryptocurrencyText>
+            <CryptocurrencyText>
+              {data.all_time_high.price.toFixed(2)}
+            </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
         <Container>
@@ -133,7 +137,9 @@ export const DetailList = ({data}) => {
             <CryptocurrencyText>Cycle low</CryptocurrencyText>
           </CryptocurrencyContainer>
           <CryptocurrencyContainer>
-            <CryptocurrencyText>{data.cycle_low.price}</CryptocurrencyText>
+            <CryptocurrencyText>
+              {data.cycle_low.price.toFixed(2)}
+            </CryptocurrencyText>
           </CryptocurrencyContainer>
         </Container>
         <Container>
