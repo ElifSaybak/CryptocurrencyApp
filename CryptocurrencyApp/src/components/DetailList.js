@@ -1,15 +1,13 @@
 import React from 'react';
 import {View, Text, ScrollView} from 'react-native';
-import {useTheme} from 'styled-components';
 import styled from 'styled-components/native';
 
 const StyledScrollView = styled(ScrollView)`
-  margin-bottom: 10px;
+  margin-vertical: 10px;
 `;
 
 const MainContainer = styled(View)`
   background-color: ${props => props.theme.blueMain};
-  margin-top: 10px;
   width: 350px;
   flex-direction: column;
   justify-content: center;
@@ -41,8 +39,6 @@ const CryptocurrencyText = styled(Text)`
 `;
 
 export const DetailList = ({data}) => {
-  const theme = useTheme();
-
   return (
     <StyledScrollView>
       <MainContainer>

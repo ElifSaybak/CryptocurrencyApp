@@ -11,7 +11,6 @@ const MainContainer = styled(View)`
   width: 350px;
   flex-direction: row;
   padding: 10px;
-  align-items: center;
 `;
 
 const StyledScrollView = styled(ScrollView)`

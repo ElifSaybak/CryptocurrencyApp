@@ -5,7 +5,6 @@ import {
   useColorScheme,
   StyleSheet,
 } from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from 'styled-components/native';
 import {Provider} from 'react-redux';
@@ -32,9 +31,7 @@ const App = () => {
               barStyle={isDarkMode ? 'light-content' : 'dark-content'}
               backgroundColor={lightTheme.blueLight}
             />
-            <GestureHandlerRootView style={styles.container}>
-              <Routes />
-            </GestureHandlerRootView>
+            <Routes />
           </SafeAreaView>
         </ThemeProvider>
       </NavigationContainer>

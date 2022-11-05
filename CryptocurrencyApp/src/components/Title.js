@@ -19,7 +19,7 @@ const Container = styled(View)`
   border-color:${props => props.theme.blueMain}
   justify-content: center;
   align-items: center;
-  height: 70px;
+  height: 60px;
   width: 255px;
 `;
 
@@ -27,7 +27,7 @@ const TitleContainer = styled(View)`
   background-color: ${props => props.theme.blueMain};
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 40px;
   width: 235px;
 `;
 
@@ -44,13 +44,13 @@ const IconContainer = styled(View)`
   border-color:${props => props.theme.blueMain}
   justify-content: center;
   align-items: center;
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
 `;
 
 const StyledImage = styled(Image)`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 `;
 
 export const Title = ({data}) => {
@@ -60,7 +60,9 @@ export const Title = ({data}) => {
     <MainContainer>
       <Container>
         <TitleContainer>
-          <TitleText>{data.name} - {data.symbol}</TitleText>
+          <TitleText>
+            {data.name} - {data.symbol}
+          </TitleText>
         </TitleContainer>
       </Container>
       <IconContainer>

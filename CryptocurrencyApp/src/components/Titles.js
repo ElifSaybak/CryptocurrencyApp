@@ -5,8 +5,8 @@ import styled from 'styled-components/native';
 
 const Container = styled(View)`
   background-color: ${props => props.theme.blueMain};
-  margin-top: 30px;
-  height: 70px;
+  margin-top: 20px;
+  height: 60px;
   width: 350px;
   flex-direction: row;
   padding: 10px;
@@ -18,8 +18,8 @@ const TitleContainer = styled(View)`
   background-color: ${props => props.theme.white};
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 100px;
+  height: 40px;
+  width: 105px;
 `;
 
 const Title = styled(Text)`

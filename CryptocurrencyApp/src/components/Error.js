@@ -3,29 +3,25 @@ import {Text, View} from 'react-native';
 import styled from 'styled-components/native';
 
 const ErrorView = styled(View)`
-  margin-top: 30px;
-  height: auto;
+  margin-top: 20px;
+  justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.white};
   border-radius: 20px;
   padding: 15px;
-`;
-
-const ErrorTitle = styled(Text)`
-  font-size: 20px;
-  color: ${props => props.theme.black};
-  margin-bottom: 20px;
+  width: 350px;
+  height: 150px;
 `;
 
 const ErrorText = styled(Text)`
-  font-size: 16px;
+  font-size: 20px;
   color: ${props => props.theme.error};
 `;
 
-export const Error = () => {
+export const Error = ({message}) => {
   return (
     <ErrorView>
-      <ErrorTitle>Something went wrong!</ErrorTitle>
+      <ErrorText>{message}</ErrorText>
     </ErrorView>
   );
 };

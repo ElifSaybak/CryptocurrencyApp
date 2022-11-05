@@ -38,7 +38,7 @@ export const CryptocurrencyDetails = props => {
   if (error) {
     return (
       <Layout>
-        <Error message={error} />
+        <Error message="Something went wrong!" />
       </Layout>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, KeyboardAvoidingView} from 'react-native';
 import styled from 'styled-components/native';
 
 const Container = styled(View)`
@@ -9,5 +9,9 @@ const Container = styled(View)`
 `;
 
 export const Layout = ({children, style}) => (
-  <Container style={style}>{children}</Container>
+  <KeyboardAvoidingView
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    style={{flex: 1}}>
+    <Container style={style}>{children}</Container>
+  </KeyboardAvoidingView>
 );
