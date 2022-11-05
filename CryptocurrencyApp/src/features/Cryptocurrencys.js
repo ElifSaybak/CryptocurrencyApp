@@ -32,7 +32,6 @@ export const Cryptocurrencys = () => {
   useEffect(() => {
     const fetchData = async () => {
       await dispatch(getCryptocurrencys());
-      setFilterData(cryptocurrencys.data);
       setLoading(false);
     };
 
@@ -44,6 +43,10 @@ export const Cryptocurrencys = () => {
       console.log('\nERROR getCryptocurrencys: ', error.message);
     }
   }, []);
+
+  useEffect(() => {
+    setFilterData(cryptocurrencys.data);
+  }, [cryptocurrencys.data]);
 
   const searchFilter = text => {
     if (text) {
