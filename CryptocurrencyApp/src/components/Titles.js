@@ -24,7 +24,7 @@ const TitleContainer = styled(View)`
 
 const Title = styled(Text)`
   color: ${props => props.theme.blueMain};
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
 `;
