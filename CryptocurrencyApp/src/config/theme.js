@@ -1,9 +1,7 @@
 export const lightTheme = {
-  white: '#ffffff',
+  white: '#FFFFFF',
   greyLighter: '#EBEBEB',
-  black: '#000000',
-
-  error: '#f00000',
+  greyDarker: '#999999',
 
   blueLight: '#31D8C3',
   blueMain: '#1A7380',

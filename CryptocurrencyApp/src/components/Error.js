@@ -7,6 +7,8 @@ const ErrorView = styled(View)`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.white};
+  border-color: ${props => props.theme.blueMain};
+  border-width: 2px;
   border-radius: 20px;
   padding: 15px;
   width: 350px;
@@ -15,7 +17,8 @@ const ErrorView = styled(View)`
 
 const ErrorText = styled(Text)`
   font-size: 20px;
-  color: ${props => props.theme.error};
+  font-weight: bold;
+  color: ${props => props.theme.greyDarker};
 `;
 
 export const Error = ({message}) => {

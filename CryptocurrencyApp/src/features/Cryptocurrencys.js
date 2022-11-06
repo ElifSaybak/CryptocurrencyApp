@@ -1,22 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTheme} from 'styled-components';
-import styled from 'styled-components/native';
-import {TextInput} from 'react-native';
+import {StyleSheet, TextInput, View} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {getCryptocurrencys} from '../redux/actions';
 import {Titles, List, Loading, Layout, Error} from '../components/index';
-
-const SearchInput = styled(TextInput)`
-  background-color: ${props => props.theme.white};
-  border-color: ${props => props.theme.blueMain};
-  border-width: 1px;
-  border-radius: 15px;
-  padding-left: 20px;
-  height: 50px;
-  width: 350px;
-  margin-top: 30px;
-`;
 
 export const Cryptocurrencys = () => {
   const theme = useTheme();
@@ -77,11 +66,22 @@ export const Cryptocurrencys = () => {
 
   return (
     <Layout>
-      <SearchInput
-        value={search}
-        placeholder="Search here.."
-        onChangeText={text => searchFilter(text)}
-      />
+      <View style={styles(theme).searchView}>
+        <Icon
+          name="search"
+          size={28}
+          color={theme.blueMain}
+          style={styles(theme).searchIcon}
+        />
+        <TextInput
+          value={search}
+          placeholder="Search here.."
+          placeholderTextColor={theme.greyDarker}
+          onChangeText={text => searchFilter(text)}
+          underlineColorAndroid="transparent"
+          style={styles(theme).searchInput}
+        />
+      </View>
       <Titles />
       {filterData == '' ? (
         <Error message="No found :(" />
@@ -91,3 +91,32 @@ export const Cryptocurrencys = () => {
     </Layout>
   );
 };
+
+const styles = theme =>
+  StyleSheet.create({
+    searchView: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginTop: 30,
+      height: 50,
+      width: 350,
+      borderWidth: 1,
+      backgroundColor: theme.white,
+      borderColor: theme.blueMain,
+    },
+    searchIcon: {
+      padding: 10,
+    },
+    searchInput: {
+      flex: 1,
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: 10,
+      paddingRight: 0,
+      backgroundColor: theme.white,
+      color: theme.greyDarker,
+      fontSize: 16,
+      fontStyle: 'italic',
+      fontWeight: 'bold',
+    },
+  });
