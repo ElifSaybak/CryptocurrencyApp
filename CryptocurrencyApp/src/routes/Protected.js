@@ -15,12 +15,12 @@ export const Protected = () => {
       screenOptions={{
         headerTitleAlign: 'center',
         headerTitleStyle: {
-          fontSize: 22,
+          fontSize: 24,
           fontWeight: 'bold',
         },
-        headerTintColor: theme.blueMain,
+        headerTintColor: theme.white,
         headerStyle: {
-          backgroundColor: theme.blueLight,
+          backgroundColor: theme.greenMain,
         },
       }}>
       <Stack.Screen

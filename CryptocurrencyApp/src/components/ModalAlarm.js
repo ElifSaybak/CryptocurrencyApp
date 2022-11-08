@@ -39,8 +39,8 @@ export const ModalAlarm = ({name, price}) => {
   const toastAlarm = () => {
     clearTimeout(alarmTimer);
     return toast.alarm({
-      title: `${name} değeri: ${price}`,
-      description: `İstenilen değer: ${priceInput}`,
+      title: `Value of ${name}: ${price}`,
+      description: `Desired value: ${priceInput}`,
     });
   };
   const hightLimit = () => {
@@ -70,7 +70,7 @@ export const ModalAlarm = ({name, price}) => {
                 Cryptocurrency Alarm
               </Text>
               <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
-                <Icon name="close" size={45} color={theme.blueLight} />
+                <Icon name="close" size={45} color={theme.greenMain} />
               </TouchableOpacity>
             </View>
             <TextInput
@@ -91,7 +91,7 @@ export const ModalAlarm = ({name, price}) => {
         </View>
       </Modal>
       <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Icon name="bell-ring" size={45} color={theme.blueLight} />
+        <Icon name="bell-ring" size={45} color={theme.greenMain} />
       </TouchableOpacity>
     </View>
   );

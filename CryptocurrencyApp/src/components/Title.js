@@ -4,44 +4,30 @@ import styled from 'styled-components/native';
 import {ModalAlarm} from './index';
 
 const MainContainer = styled(View)`
-  background-color: ${props => props.theme.greyLighter};
+  background-color: ${props => props.theme.orangeTransparant};
   margin-top: 30px;
-  height: 70px;
+  height: 60px;
   width: 350px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-radius: 15px;
 `;
 
 const Container = styled(View)`
-  background-color: ${props => props.theme.white};
-  border-width:1px;
-  border-color:${props => props.theme.blueMain}
   justify-content: center;
   align-items: center;
-  height: 60px;
   width: 255px;
 `;
 
-const TitleContainer = styled(View)`
-  background-color: ${props => props.theme.blueMain};
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  width: 235px;
-`;
-
 const TitleText = styled(Text)`
-  color: ${props => props.theme.white};
-  font-size: 18px;
+  color: ${props => props.theme.greenMain};
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
 `;
 
 const ModalContainer = styled(View)`
-  background-color: ${props => props.theme.blueMain};
-  border-width:1px;
-  border-color:${props => props.theme.blueMain}
   justify-content: center;
   align-items: center;
   height: 60px;
@@ -52,14 +38,15 @@ export const Title = ({data}) => {
   return (
     <MainContainer>
       <Container>
-        <TitleContainer>
-          <TitleText>
-            {data.name} - {data.symbol}
-          </TitleText>
-        </TitleContainer>
+        <TitleText>
+          {data.name} - {data.symbol}
+        </TitleText>
       </Container>
       <ModalContainer>
-        <ModalAlarm name={data.name} price={data.market_data.price_usd.toFixed(2)} />
+        <ModalAlarm
+          name={data.name}
+          price={data.market_data.price_usd.toFixed(2)}
+        />
       </ModalContainer>
     </MainContainer>
   );

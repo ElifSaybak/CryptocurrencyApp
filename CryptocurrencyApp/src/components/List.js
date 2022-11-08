@@ -5,12 +5,9 @@ import {Item} from './index';
 
 const MainContainer = styled(View)`
   background-color: ${props => props.theme.white};
-  border-width: 2px;
-  border-color: ${props => props.theme.blueMain};
-  margin-top: 10px;
+  margin-vertical: 15px;
   width: 350px;
   flex-direction: row;
-  padding: 10px;
 `;
 
 const StyledScrollView = styled(ScrollView)`

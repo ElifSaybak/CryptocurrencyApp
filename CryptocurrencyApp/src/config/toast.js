@@ -15,17 +15,17 @@ const Alarm = props => {
     <BaseToast
       {...props}
       style={{
-        borderLeftColor: theme.blueMain,
+        borderLeftColor: theme.orangeDarker,
         height: HEIGHT,
         minHeight: MIN_HEIGHT,
       }}
       text1Style={{
         fontSize: TEXT_1_FONT_SIZE,
-        color: theme.black,
+        color: theme.greenMain,
       }}
       text2Style={{
         fontSize: TEXT_2_FONT_SIZE,
-        color: theme.greyDarkest,
+        color: theme.greyDarker,
       }}
       text2NumberOfLines={TEXT_2_NUMBER_OF_LINES}
     />

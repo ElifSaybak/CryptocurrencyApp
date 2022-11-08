@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 const Container = styled(View)`
   flex: 1;
   align-items: center;
-  background-color: ${props => props.theme.greyLighter};
+  background-color: ${props => props.theme.white};
 `;
 
 export const Layout = ({children, style}) => (

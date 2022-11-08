@@ -5,7 +5,7 @@ import {TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {getCryptocurrencys} from '../redux/actions';
-import {Titles, List, Loading, Layout, Error} from '../components/index';
+import {List, Loading, Layout, Error} from '../components/index';
 import {cryptoCurrencys} from '../assets/css/index';
 
 export const Cryptocurrencys = () => {
@@ -75,8 +75,8 @@ export const Cryptocurrencys = () => {
       <View style={cryptoCurrencys(theme).searchView}>
         <Icon
           name="search"
-          size={28}
-          color={theme.blueMain}
+          size={30}
+          color={theme.orangeDarker}
           style={cryptoCurrencys(theme).searchIcon}
         />
         <TextInput
@@ -88,7 +88,6 @@ export const Cryptocurrencys = () => {
           style={cryptoCurrencys(theme).searchInput}
         />
       </View>
-      <Titles />
       {filterData == '' ? (
         <Error message="No found :(" />
       ) : (

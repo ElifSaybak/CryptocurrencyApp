@@ -8,27 +8,37 @@ const Container = styled(TouchableOpacity)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: ${props => props.theme.greenLighter}
+  margin-bottom: 5px;
+  border-radius: 15px;
 `;
 
 const CryptocurrencyContainer = styled(View)`
-  background-color: ${props => props.theme.blueMain};
   justify-content: center;
-  align-items: center;
   height: 50px;
-  width: 107px;
-  margin-bottom: 10px;
+`;
+
+const CryptocurrencyName = styled(Text)`
+  color: ${props => props.theme.greenMain}
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 15px;
+`;
+
+const CryptocurrencyPrice = styled(Text)`
+  color: ${props => props.theme.orangeDarker}
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+  padding-right: 15px;
 `;
 
 const CryptocurrencyText = styled(Text)`
-  color: ${props => props.theme.white};
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  padding: 5px;
+  color: ${props => props.theme.greyDarker};
+  font-size: 12px;
 `;
 
 export const Item = ({id, name, symbol, price}) => {
-  const theme = useTheme();
   const navigation = useNavigation();
 
   const GetDetails = () => {
@@ -38,13 +48,14 @@ export const Item = ({id, name, symbol, price}) => {
   return (
     <Container onPress={() => GetDetails()}>
       <CryptocurrencyContainer>
-        <CryptocurrencyText>{name}</CryptocurrencyText>
+        <CryptocurrencyName>
+          {name} - <CryptocurrencyText>{symbol}</CryptocurrencyText>
+        </CryptocurrencyName>
       </CryptocurrencyContainer>
       <CryptocurrencyContainer>
-        <CryptocurrencyText>{symbol}</CryptocurrencyText>
-      </CryptocurrencyContainer>
-      <CryptocurrencyContainer>
-        <CryptocurrencyText>{price.toFixed(2)}</CryptocurrencyText>
+        <CryptocurrencyPrice>
+          {price.toFixed(2)} <CryptocurrencyText>USDT</CryptocurrencyText>
+        </CryptocurrencyPrice>
       </CryptocurrencyContainer>
     </Container>
   );

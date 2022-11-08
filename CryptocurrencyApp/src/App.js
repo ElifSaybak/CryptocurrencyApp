@@ -31,7 +31,7 @@ const App = () => {
           <SafeAreaView style={styles.container}>
             <StatusBar
               barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-              backgroundColor={lightTheme.blueLight}
+              backgroundColor={lightTheme.greenMain}
             />
             <Routes />
             <Toast config={toastConfig} />
