@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTheme} from 'styled-components';
 import {modalAlarm} from '../assets/css/index';
 import {toast} from '../utils/index';
+import {UPDATE_PERIOD_TIME} from '../config/index';
 
 export const ModalAlarm = ({name, price}) => {
   const theme = useTheme();
@@ -33,7 +34,7 @@ export const ModalAlarm = ({name, price}) => {
       } else {
         hightLimit();
       }
-    }, 60000);
+    }, UPDATE_PERIOD_TIME);
   };
 
   const toastAlarm = () => {

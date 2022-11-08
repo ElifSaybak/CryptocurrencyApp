@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import {getCryptocurrency, RESET_CRYPTOCURRENCY} from '../redux/actions';
 import {Loading, Layout, Title, DetailList, Error} from '../components/index';
+import {UPDATE_PERIOD_TIME} from '../config/index';
 
 export const CryptocurrencyDetails = props => {
   const id = props.route.params.id;
@@ -34,7 +35,7 @@ export const CryptocurrencyDetails = props => {
 
   setTimeout(() => {
     setTimer(!timer);
-  }, 60000);
+  }, UPDATE_PERIOD_TIME);
 
   if (loading) {
     return <Loading color={theme.blueMain} size="large" />;

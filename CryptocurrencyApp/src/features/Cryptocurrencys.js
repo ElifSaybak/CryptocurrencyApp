@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {getCryptocurrencys} from '../redux/actions';
 import {List, Loading, Layout, Error} from '../components/index';
 import {cryptoCurrencys} from '../assets/css/index';
+import {UPDATE_PERIOD_TIME} from '../config/index';
 
 export const Cryptocurrencys = () => {
   const theme = useTheme();
@@ -22,7 +23,7 @@ export const Cryptocurrencys = () => {
 
   setTimeout(() => {
     setTimer(!timer);
-  }, 60000);
+  }, UPDATE_PERIOD_TIME);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,20 +42,20 @@ export const Cryptocurrencys = () => {
 
   useEffect(() => {
     setFilterData(cryptocurrencys.data);
+    searchFilter();
   }, [cryptocurrencys.data]);
 
-  const searchFilter = text => {
-    if (text) {
+  const searchFilter = () => {
+    if (search) {
       const newData = cryptocurrencys.data.filter(item => {
         const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
-        const textData = text.toUpperCase();
+        const textData = search.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
       setFilterData(newData);
-      setSearch(text);
     } else {
       setFilterData(cryptocurrencys.data);
-      setSearch(text);
+      
     }
   };
 
@@ -83,7 +84,9 @@ export const Cryptocurrencys = () => {
           value={search}
           placeholder="Search here.."
           placeholderTextColor={theme.greyDarker}
-          onChangeText={text => searchFilter(text)}
+          onChangeText={
+            text => {
+              setSearch(text), searchFilter()}}
           underlineColorAndroid="transparent"
           style={cryptoCurrencys(theme).searchInput}
         />

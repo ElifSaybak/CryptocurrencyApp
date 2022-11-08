@@ -6,9 +6,7 @@ const ErrorView = styled(View)`
   margin-top: 20px;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.white};
-  border-color: ${props => props.theme.blueMain};
-  border-width: 2px;
+  background-color: ${props => props.theme.orangeTransparant};
   border-radius: 20px;
   padding: 15px;
   width: 350px;
