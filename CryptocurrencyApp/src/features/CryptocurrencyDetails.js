@@ -10,6 +10,7 @@ export const CryptocurrencyDetails = props => {
   const theme = useTheme();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [timer, setTimer] = useState(false);
 
   const {cryptocurrency} = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
@@ -29,7 +30,11 @@ export const CryptocurrencyDetails = props => {
     }
 
     return () => dispatch(RESET_CRYPTOCURRENCY);
-  }, []);
+  }, [timer]);
+
+  setTimeout(() => {
+    setTimer(!timer);
+  }, 60000);
 
   if (loading) {
     return <Loading color={theme.blueMain} size="large" />;

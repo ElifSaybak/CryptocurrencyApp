@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import {useTheme} from 'styled-components';
+import {View, Text} from 'react-native';
 import styled from 'styled-components/native';
+import {ModalAlarm} from './index';
 
 const MainContainer = styled(View)`
   background-color: ${props => props.theme.greyLighter};
@@ -38,24 +38,17 @@ const TitleText = styled(Text)`
   text-align: center;
 `;
 
-const IconContainer = styled(View)`
-  background-color: ${props => props.theme.white};
+const ModalContainer = styled(View)`
+  background-color: ${props => props.theme.blueMain};
   border-width:1px;
   border-color:${props => props.theme.blueMain}
   justify-content: center;
   align-items: center;
   height: 60px;
-  width: 60px;
-`;
-
-const StyledImage = styled(Image)`
-  height: 40px;
-  width: 40px;
+  width: 70px;
 `;
 
 export const Title = ({data}) => {
-  const theme = useTheme();
-
   return (
     <MainContainer>
       <Container>
@@ -65,11 +58,9 @@ export const Title = ({data}) => {
           </TitleText>
         </TitleContainer>
       </Container>
-      <IconContainer>
-        <StyledImage
-          source={require('../assets/bootsplash_logo_original.png')}
-        />
-      </IconContainer>
+      <ModalContainer>
+        <ModalAlarm price={data.market_data.price_usd.toFixed(2)} />
+      </ModalContainer>
     </MainContainer>
   );
 };

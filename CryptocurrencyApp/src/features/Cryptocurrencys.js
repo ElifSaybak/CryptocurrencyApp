@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTheme} from 'styled-components';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {getCryptocurrencys} from '../redux/actions';
 import {Titles, List, Loading, Layout, Error} from '../components/index';
+import {cryptoCurrencys} from '../assets/css/index';
 
 export const Cryptocurrencys = () => {
   const theme = useTheme();
@@ -14,9 +15,14 @@ export const Cryptocurrencys = () => {
 
   const [filterData, setFilterData] = useState([]);
   const [search, setSearch] = useState('');
+  const [timer, setTimer] = useState(false);
 
   const {cryptocurrencys} = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
+
+  setTimeout(() => {
+    setTimer(!timer);
+  }, 60000);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +37,7 @@ export const Cryptocurrencys = () => {
       setLoading(false);
       console.log('\nERROR getCryptocurrencys: ', error.message);
     }
-  }, []);
+  }, [timer]);
 
   useEffect(() => {
     setFilterData(cryptocurrencys.data);
@@ -66,12 +72,12 @@ export const Cryptocurrencys = () => {
 
   return (
     <Layout>
-      <View style={styles(theme).searchView}>
+      <View style={cryptoCurrencys(theme).searchView}>
         <Icon
           name="search"
           size={28}
           color={theme.blueMain}
-          style={styles(theme).searchIcon}
+          style={cryptoCurrencys(theme).searchIcon}
         />
         <TextInput
           value={search}
@@ -79,7 +85,7 @@ export const Cryptocurrencys = () => {
           placeholderTextColor={theme.greyDarker}
           onChangeText={text => searchFilter(text)}
           underlineColorAndroid="transparent"
-          style={styles(theme).searchInput}
+          style={cryptoCurrencys(theme).searchInput}
         />
       </View>
       <Titles />
@@ -91,32 +97,3 @@ export const Cryptocurrencys = () => {
     </Layout>
   );
 };
-
-const styles = theme =>
-  StyleSheet.create({
-    searchView: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      marginTop: 30,
-      height: 50,
-      width: 350,
-      borderWidth: 1,
-      backgroundColor: theme.white,
-      borderColor: theme.blueMain,
-    },
-    searchIcon: {
-      padding: 10,
-    },
-    searchInput: {
-      flex: 1,
-      paddingTop: 10,
-      paddingBottom: 10,
-      paddingLeft: 10,
-      paddingRight: 0,
-      backgroundColor: theme.white,
-      color: theme.greyDarker,
-      fontSize: 16,
-      fontStyle: 'italic',
-      fontWeight: 'bold',
-    },
-  });
