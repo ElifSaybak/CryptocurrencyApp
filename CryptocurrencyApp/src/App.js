@@ -8,10 +8,12 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from 'styled-components/native';
 import {Provider} from 'react-redux';
-import {Store} from './redux/store';
+import Toast from 'react-native-toast-message';
 
+import {Store} from './redux/store';
 import {lightTheme} from '../src/config/theme';
 import {Routes} from '../src/routes/index';
+import toastConfig from './config/toast';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +34,7 @@ const App = () => {
               backgroundColor={lightTheme.blueLight}
             />
             <Routes />
+            <Toast config={toastConfig} />
           </SafeAreaView>
         </ThemeProvider>
       </NavigationContainer>

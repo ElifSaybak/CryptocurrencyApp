@@ -59,7 +59,7 @@ export const Title = ({data}) => {
         </TitleContainer>
       </Container>
       <ModalContainer>
-        <ModalAlarm price={data.market_data.price_usd.toFixed(2)} />
+        <ModalAlarm name={data.name} price={data.market_data.price_usd.toFixed(2)} />
       </ModalContainer>
     </MainContainer>
   );

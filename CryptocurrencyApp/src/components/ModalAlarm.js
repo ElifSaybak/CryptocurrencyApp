@@ -10,12 +10,50 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTheme} from 'styled-components';
 import {modalAlarm} from '../assets/css/index';
+import {toast} from '../utils/index';
 
-export const ModalAlarm = ({price}) => {
+export const ModalAlarm = ({name, price}) => {
   const theme = useTheme();
   const [modalVisible, setModalVisible] = useState(false);
 
   const [priceInput, setPriceInput] = useState('');
+  const [limitType, setLimitType] = useState(0);
+
+  var alarmTimer;
+
+  const setAlarm = text => {
+    if (text && text < price) {
+      setLimitType(0);
+    } else {
+      setLimitType(1);
+    }
+    alarmTimer = setTimeout(() => {
+      if (limitType === 0) {
+        lowLimit();
+      } else {
+        hightLimit();
+      }
+    }, 60000);
+  };
+
+  const toastAlarm = () => {
+    clearTimeout(alarmTimer);
+    return toast.alarm({
+      title: `${name} değeri: ${price}`,
+      description: `İstenilen değer: ${priceInput}`,
+    });
+  };
+  const hightLimit = () => {
+    if (price > priceInput) {
+      toastAlarm();
+    }
+  };
+
+  const lowLimit = () => {
+    if (price <= priceInput) {
+      toastAlarm();
+    }
+  };
 
   return (
     <View style={modalAlarm(theme).centeredView}>
@@ -45,7 +83,7 @@ export const ModalAlarm = ({price}) => {
             <Pressable
               style={modalAlarm(theme).button}
               onPress={() => {
-                setModalVisible(!modalVisible);
+                setModalVisible(!modalVisible), setAlarm(priceInput);
               }}>
               <Text style={modalAlarm(theme).textStyle}>Set Alarm</Text>
             </Pressable>
