@@ -12,6 +12,7 @@ import {useTheme} from 'styled-components';
 import {modalAlarm} from '../assets/css/index';
 import {toast} from '../utils/index';
 import {UPDATE_PERIOD_TIME} from '../config/index';
+import reactotron from '../config/reactotron';
 
 export const ModalAlarm = ({name, price}) => {
   const theme = useTheme();
@@ -39,6 +40,7 @@ export const ModalAlarm = ({name, price}) => {
 
   const toastAlarm = () => {
     clearTimeout(alarmTimer);
+    reactotron.log(`Desired value: ${priceInput}`);
     return toast.alarm({
       title: `Value of ${name}: ${price}`,
       description: `Desired value: ${priceInput}`,
