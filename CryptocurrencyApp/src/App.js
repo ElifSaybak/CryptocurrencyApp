@@ -14,6 +14,9 @@ import {Store} from './redux/store';
 import {lightTheme} from '../src/config/theme';
 import {Routes} from '../src/routes/index';
 import toastConfig from './config/toast';
+import reactotron from './config/reactotron';
+
+if (__DEV__) reactotron.connect();
 
 const styles = StyleSheet.create({
   container: {
